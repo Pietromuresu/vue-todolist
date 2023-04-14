@@ -22,7 +22,8 @@ createApp ({
           done: false
         },
       ],
-      message: ''
+      message: '',
+      taskText: ''
     } 
   },
   methods: {
@@ -40,6 +41,21 @@ createApp ({
       setTimeout(() => {
        this.message= ''
       }, 2000)
+    },
+
+    newTask(tasks){
+      const newTask =  {
+        text: this.taskText,
+        done: false
+      }
+      
+      if(this.taskText.length > 4){
+        this.tasks.unshift(newTask)
+        this.taskText= ""
+      }else {
+        this.errorMessage('Devi inserire almeno 4 lettere')
+      }
+      
     }
   }
 }).mount('#app')
