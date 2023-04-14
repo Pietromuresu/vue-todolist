@@ -26,12 +26,11 @@
 
     <div class="tasks-container">
       <ul class="tasks-list">
-        <li>
-          <span>Fare la spesa</span>
-          <i class="fa-solid fa-x"></i>
-        </li>
-        <li>
-          <span>Fare la spesa</span>
+        <li
+        v-for="task in tasks"
+          @click="task.done = !task.done" >
+          
+          <span :class="{'done': task.done}">{{task.text}}</span>
           <i class="fa-solid fa-x"></i>
         </li>
       </ul>
